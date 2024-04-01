@@ -34,7 +34,7 @@ CURRENT_BUILD_USER=$(whoami)
 
 # Toolchain options
 BUILD_PREF_COMPILER='clang'
-BUILD_PREF_COMPILER_VERSION='proton'
+BUILD_PREF_COMPILER_VERSION='clang19'
 
 # Local toolchain directory
 TOOLCHAIN=$HOME/toolchains/exynos9610_toolchains_fresh
@@ -60,7 +60,12 @@ exit_script() {
 }
 
 download_toolchain() {
-	git clone https://gitlab.com/TenSeventy7/exynos9610_toolchains_fresh.git ${TOOLCHAIN_EXT} --single-branch -b ${BUILD_PREF_COMPILER_VERSION} --depth 1 2>&1 | sed 's/^/     /'
+	mkdir -p ${TOOLCHAIN_EXT}
+	cd ${TOOLCHAIN_EXT}
+	wget -O c.tar.gz https://github.com/ZyCromerZ/Clang/releases/download/19.0.0git-20240401-release/Clang-19.0.0git-20240401.tar.gz 
+	tar -xvf c.tar.gz
+	rm -rf c.tar.gz
+	cd ..
 	verify_toolchain
 }
 
