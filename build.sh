@@ -34,7 +34,7 @@ CURRENT_BUILD_USER=$(whoami)
 
 # Toolchain options
 BUILD_PREF_COMPILER='clang'
-BUILD_PREF_COMPILER_VERSION='clang19'
+BUILD_PREF_COMPILER_VERSION='proton'
 
 # Local toolchain directory
 TOOLCHAIN=$HOME/toolchains/exynos9610_toolchains_fresh
